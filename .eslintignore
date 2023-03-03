@@ -1,0 +1,8 @@
+# exclude all
+
+/\*_/_
+
+# except /src/\*_/_
+
+!/src
+!/src/\*_/_
