@@ -1,4 +1,4 @@
-import {drawerStoreSlice, RootStore, trafficStoreSlice, useContextRootStore} from '../../stores';
+import {drawerStoreSlice, RootStore, trafficStoreSlice} from '../../stores';
 import {dropdownMapper, primitiveDropdownMapper} from '../../utils';
 import {MouseEventHandler} from 'react';
 
