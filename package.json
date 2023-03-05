@@ -52,6 +52,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --verbose=true --watchAll --runInBand --coverage --coverageReporters='text-summary'",
+    "tets:build":"react-scripts test --verbose=true  --runInBand",
     "lint": "eslint --max-warnings=0 --fix --ext .ts,.tsx .",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "pre-commit": "lint-staged",
