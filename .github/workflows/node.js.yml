@@ -29,4 +29,3 @@ jobs:
     - run: npm ci
     - run: npm install
     - run: npm run test:build
-    - run: npm start
