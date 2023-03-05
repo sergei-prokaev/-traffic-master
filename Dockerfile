@@ -1,4 +1,5 @@
-FROM node:latest
+FROM node:18-alpine
+
 
 # Папка приложения
 # ARG APP_DIR=app
@@ -18,6 +19,5 @@ COPY . .
 EXPOSE 3000
 
 # Запуск проекта
-RUN npm run test:build
 
 CMD ["npm", "start"]
