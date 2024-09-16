@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: traffic-master
+  labels:
+    app: traffic-master
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: traffic-master
+  template:
+    metadata:
+      labels:
+        app: traffic-master
+    spec:
+      containers:
+        - name: traffic-master
+          image: sergeiprokaev/traffic-master:latest
+
+          ports:
+            - containerPort: 80
