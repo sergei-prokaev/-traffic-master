@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: traffic-master
   labels:
-    app: my-webapp
+    app: traffic-master
     tier: frontend
 spec:
   type: ClusterIP
