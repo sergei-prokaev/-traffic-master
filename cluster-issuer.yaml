@@ -1,14 +1,15 @@
-apiVersion: cert-manager.io/v1
+apiVersion: certmanager.k8s.io/v1alpha1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-prod
+  name: letsencrypt-staging
 spec:
   acme:
-    server: https://acme-v02.api.letsencrypt.org/directory
-    email: sergei.prokaev@gmail.com
+    # The ACME server URL
+    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: sergey.prokayev@gmail.com
+    # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
-      name: letsencrypt-prod-key
-    solvers:
-      - http01:
-          ingress:
-            class: nginx
+      name: letsencrypt-sec-staging
+    # Enable HTTP01 validations
+    http01: {}

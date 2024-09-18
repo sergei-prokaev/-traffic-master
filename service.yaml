@@ -1,22 +1,15 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: web-app-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: traffic-master
+  labels:
+    app: my-webapp
+    tier: frontend
 spec:
-  rules:
-    - host: appka.site
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: app-service
-                port:
-                  number: 80
-  tls:
-    - hosts:
-        - appka.site
-      secretName: appka-cert
+  type: ClusterIP
+  ports:
+  — port: 80
+    targetPort: 8080
+  selector:
+    app: traffic-master
+    tier: frontend
