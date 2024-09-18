@@ -1,20 +1,22 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: traffic-master
   annotations:
     kubernetes.io/ingress.class: nginx
-    certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   rules:
     - host: www.appka.site
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: traffic-master
-              servicePort: 80
+              service:
+                name: traffic-master
+                port:
+                  number: 80
   tls:
     - secretName: tls-staging-cert
       hosts:
