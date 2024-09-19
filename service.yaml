@@ -1,15 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: traffic-master
-  labels:
-    app: traffic-master
-    tier: frontend
+  name: traffic-master-service
+  namespace: react-app
 spec:
-  type: ClusterIP
-  ports:
-    - port: 80
-      targetPort: 8080
   selector:
     app: traffic-master
-    tier: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
