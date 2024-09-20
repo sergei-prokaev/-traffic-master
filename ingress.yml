@@ -1,26 +1,3 @@
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: traffic-master-ingress
-#  annotations:
-#    kubernetes.io/ingress.class: nginx
-#    cert-manager.io/cluster-issuer: letsencrypt-staging
-#spec:
-#  rules:
-#    - host: banka.life
-#      http:
-#        paths:
-#          - path: /
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: traffic-master-service
-#                port:
-#                  number: 80
-#  tls:
-#    - secretName: tls-cert
-#      hosts:
-#        - banka.life
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -33,20 +10,9 @@ spec:
   tls:
     - hosts:
         - banka.life
-        - appka.site
       secretName: app-tls
   rules:
     - host: banka.life
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: traffic-master-service
-                port:
-                  number: 80
-    - host: appka.site
       http:
         paths:
           - path: /
