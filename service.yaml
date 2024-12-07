@@ -9,7 +9,7 @@ spec:
   type: ClusterIP
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 80
   selector:
     app: traffic-master
     tier: frontend

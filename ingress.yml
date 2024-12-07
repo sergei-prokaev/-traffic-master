@@ -4,10 +4,10 @@ metadata:
   name: traffic-master
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt-production
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
-    - host: www.banka.life
+    - host: banka.life
       http:
         paths:
           - path: /
@@ -20,5 +20,5 @@ spec:
   tls:
     - secretName: tls-production-cert
       hosts:
-        - www.banka.life
+        - banka.life
 
